@@ -28,12 +28,12 @@ def login():
     error = None
     if request.method == 'POST':
         if request.form['username'] != app.config['USERNAME'] or \
-            request.form['password'] != app.config['PASSWORD']:
+                request.form['password'] != app.config['PASSWORD']:
             error = 'Invalid Credentials. Please try again.'
         else:
             session['logged_in'] = True
             return redirect(url_for('main'))
-    return render_template('login.html', error = error)
+    return render_template('login.html', error=error)
 
 
 @app.route('/main')
